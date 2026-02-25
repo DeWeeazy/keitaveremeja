@@ -1,0 +1,328 @@
+@font-face {
+  font-family: "ButtonFont";
+  src: url("../fonts/button_font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MainFont";
+  src: url("../fonts/main_font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Background + fade */
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("../background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  opacity: 0;
+  animation: pageFadeIn 500ms ease forwards;
+}
+
+body.fade-out {
+  animation: pageFadeOut 250ms ease forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* =========================
+   STAGGERED LOAD (1 by 1)
+   drawing -> hello -> my_love -> question -> yes -> no
+   (SAFE: no transform animation, so your hover/click transforms still work)
+   ========================= */
+
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+/* start hidden */
+.drawing,
+.hello,
+.my_love,
+.question,
+.yes,
+.no {
+  opacity: 0;
+  filter: blur(10px);
+  animation: revealIn 420ms ease forwards;
+}
+
+/* order + timing */
+.drawing {
+  animation-delay: 0.10s;
+}
+
+.hello {
+  animation-delay: 0.22s;
+}
+
+.my_love {
+  animation-delay: 0.34s;
+}
+
+.question {
+  animation-delay: 0.46s;
+}
+
+.yes {
+  animation-delay: 0.62s;
+}
+
+.no {
+  animation-delay: 0.74s;
+}
+
+/* ✅ TEXT BLOCK anchored from TOP (so margins won't shift it) */
+.text-block {
+  position: absolute;
+  left: 50%;
+  top: 110px;
+  /* 🔧 move the whole text block up/down */
+  transform: translateX(-50%);
+  /* only center horizontally */
+  width: min(900px, 92vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Headings */
+.hello,
+.my_love,
+.question {
+  font-family: "MainFont", sans-serif;
+  font-weight: normal;
+  /* ⭐ important */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.hello {
+  font-size: 140px;
+  color: #414141;
+  margin-top: 210px;
+  /* ✅ move line without shifting entire block */
+}
+
+.my_love {
+  font-size: 142px;
+  color: #7b001d;
+  margin-top: -35px;
+}
+
+.question {
+  font-size: 70px;
+  color: #414141;
+  margin-top: 5px;
+}
+
+/* ✅ BUTTON ROW anchored separately (won't move when text margins change) */
+.buttons {
+  position: absolute;
+  left: 50%;
+  top: 520px;
+  /* 🔧 move the button row up/down */
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10.5px;
+  margin-top: 190px;
+}
+
+/* Buttons */
+.yes,
+.no {
+  padding: 20px 86px;
+  border-radius: 40px;
+  border: 4px solid #7b001d;
+  background-color: #dadadc;
+
+  font-family: "ButtonFont", sans-serif;
+  font-size: 20px;
+  color: #414141;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.yes:hover,
+.no:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.yes:active,
+.no:active {
+  transform: scale(0.98);
+  filter: brightness(0.98);
+}
+
+/* ⭐ Drawing image */
+.drawing {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  /* 🔧 move image up/down */
+  transform: translateX(-50%);
+
+  margin-top: 170px;
+  width: 80px;
+  /* 🔧 change size */
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+
+@media screen and (max-width: 1280px) {
+  .text-block {
+    position: absolute;
+    left: 50%;
+    top: 110px;
+    /* 🔧 move the whole text block up/down 20 */
+    transform: translateX(-50%);
+    /* only center horizontally */
+    width: min(900px, 92vw);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hello,
+  .my_love,
+  .question {
+    font-family: "MainFont", sans-serif;
+    font-weight: normal;
+    /* ⭐ important */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .hello {
+    font-size: 90px;
+    color: #414141;
+    margin-top: 90px;
+    /* ✅ move line without shifting entire block */
+  }
+
+  .my_love {
+    font-size: 91px;
+    color: #7b001d;
+    margin-top: -22.4px;
+  }
+
+  .question {
+    font-size: 45px;
+    color: #414141;
+    margin-top: 3px;
+  }
+
+  .buttons {
+    position: absolute;
+    left: 50%;
+    top: 326px;
+    /* 🔧 move the button row up/down */
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6.7px;
+    margin-top: 122px;
+  }
+
+  .yes,
+  .no {
+    padding: 13px 55px;
+    border-radius: 26px;
+    border: 2.5px solid #7b001d;
+    background-color: #dadadc;
+
+    font-family: "ButtonFont", sans-serif;
+    font-size: 12.8px;
+    color: #414141;
+    line-height: 1;
+
+    cursor: pointer;
+    transition: transform 120ms ease, filter 120ms ease;
+  }
+
+  .drawing {
+    position: absolute;
+    left: 50%;
+    top: 26px;
+    /* 🔧 move image up/down */
+    transform: translateX(-50%);
+
+    margin-top: 101px;
+    width: 51px;
+    /* 🔧 change size */
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+  }
+
+}

@@ -1,0 +1,250 @@
+@font-face {
+  font-family: "ButtonFont";
+  src: url("../fonts/button_font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MainFont";
+  src: url("../fonts/main_font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+/* =========================
+   Background + page fade
+   ========================= */
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("../background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  opacity: 0;
+  animation: pageFadeIn 500ms ease forwards;
+}
+
+body.fade-out {
+  animation: pageFadeOut 250ms ease forwards;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pageFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(6px); }
+}
+
+/* =========================
+   TEXT BLOCK
+   ========================= */
+
+.text-block {
+  position: absolute;
+  left: 50%;
+  top: 220px;
+  transform: translateX(-50%);
+  width: min(900px, 92vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Message text */
+
+.message {
+  font-family: "MainFont", sans-serif;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
+  margin: 190px;
+
+  font-size: 153px;
+  color: #7b001d;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   BUTTON ROW
+   ========================= */
+
+.buttons {
+  position: absolute;
+  left: 50%;
+  top: 620px;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10.5px;
+}
+
+/* Button */
+
+.try_again {
+  padding: 20px 86px;
+  border-radius: 40px;
+  border: 4px solid #7b001d;
+  background-color: #dadadc;
+
+  font-family: "ButtonFont", sans-serif;
+  font-size: 20px;
+  color: #414141;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.try_again:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.try_again:active {
+  transform: scale(0.98);
+  filter: brightness(0.98);
+}
+
+/* =========================
+   Drawing image
+   ========================= */
+
+.drawing {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+
+  margin-top: 220px;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================
+   ⭐ STAGGERED LOAD
+   drawing -> message -> button
+   ========================= */
+
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* start hidden */
+
+.drawing,
+.message,
+.try_again {
+  opacity: 0;
+  filter: blur(10px);
+  animation: revealIn 420ms ease forwards;
+}
+
+/* order */
+
+.drawing   { animation-delay: 0.10s; }
+.message   { animation-delay: 0.30s; }
+.try_again { animation-delay: 0.55s; }
+
+@media screen and (max-width: 1280px) {
+
+  .text-block {
+  position: absolute;
+  left: 50%;
+  top: 220px;
+  transform: translateX(-50%);
+  width: min(900px, 92vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  .message {
+  font-family: "MainFont", sans-serif;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
+  margin: 35px;
+
+  font-size: 98px;
+  color: #7b001d;
+
+  white-space: nowrap;
+}
+
+  .buttons {
+  position: absolute;
+  left: 50%;
+  top: 395px;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6.7px;
+}
+
+  .try_again {
+  padding: 13px 55px;
+  border-radius: 26px;
+  border: 2.5px solid #7b001d;
+  background-color: #dadadc;
+
+  font-family: "ButtonFont", sans-serif;
+  font-size: 13px;
+  color: #414141;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+  .drawing {
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  transform: translateX(-50%);
+
+  margin-top: 141px;
+  width: 115px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+}
