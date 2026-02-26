@@ -118,7 +118,7 @@ button {
   height: 310px;
   border-radius: 50px;
   border: 10px solid #7b001d;
-  background-color: #dadadc;
+  background-color: #fce7e9;
 
   background-size: cover;
   background-position: center;
@@ -236,7 +236,6 @@ button:active {
   height: 198px;
   border-radius: 32px;
   border: 6.4px solid #7b001d;
-  background-color: #dadadc;
 
   background-size: cover;
   background-position: center;

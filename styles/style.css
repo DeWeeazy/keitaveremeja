@@ -192,7 +192,7 @@ body.fade-out {
   padding: 20px 86px;
   border-radius: 40px;
   border: 4px solid #7b001d;
-  background-color: #dadadc;
+  background-color: #f2e7e8;
 
   font-family: "ButtonFont", sans-serif;
   font-size: 20px;
@@ -233,6 +233,7 @@ body.fade-out {
 
 
 @media screen and (max-width: 1280px) {
+
   .text-block {
     position: absolute;
     left: 50%;
@@ -299,7 +300,6 @@ body.fade-out {
     padding: 13px 55px;
     border-radius: 26px;
     border: 2.5px solid #7b001d;
-    background-color: #dadadc;
 
     font-family: "ButtonFont", sans-serif;
     font-size: 12.8px;
@@ -323,6 +323,23 @@ body.fade-out {
     height: auto;
     pointer-events: none;
     user-select: none;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  body {
+    background-image: url("../background_phone.png");
+  }
+
+  .buttons {
+    margin-top: 180px;
+  }
+
+  .yes,
+  .no {
+    border: 3px solid #7b001d;
   }
 
 }
