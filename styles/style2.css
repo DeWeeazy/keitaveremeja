@@ -251,6 +251,10 @@ button:active {
 
 @media screen and (max-width: 480px) {
 
+  body {
+    background-image: url("../background_phone.png");
+  }
+
   .text {
     font-size: 58px;
   }
