@@ -118,7 +118,7 @@ button {
   height: 310px;
   border-radius: 50px;
   border: 10px solid #7b001d;
-  background-color: #fce7e9;
+  background-color: #dadadc;
 
   background-size: cover;
   background-position: center;
@@ -236,6 +236,7 @@ button:active {
   height: 198px;
   border-radius: 32px;
   border: 6.4px solid #7b001d;
+  background-color: #dadadc;
 
   background-size: cover;
   background-position: center;
@@ -245,29 +246,6 @@ button:active {
 
   /* keep your click/hover movement */
   transition: transform 140ms ease, filter 140ms ease;
-}
-
-}
-
-@media screen and (max-width: 480px) {
-
-  .text {
-    font-size: 58px;
-  }
-
-  .text_2 {
-    font-size: 30px;
-  }
-  .grid {
-  grid-template-columns: repeat(2, 165px);
-  grid-template-rows: repeat(2, 165px);
-  gap: 16.6px;
-}
-
-  button {
-  width: 165px;
-  height: 165px;
-  border: 5.1px solid #7b001d;
 }
 
 }
