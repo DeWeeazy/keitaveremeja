@@ -656,8 +656,27 @@ body.fade-out {
 @media screen and (max-width: 480px) {
 
 body {
-  background-image: url("../background_phone.png");
-}
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Create a fixed design canvas */
+  body::before {
+    content: "";
+    position: absolute;
+    width: 1200px;      /* design reference width */
+    height: 1727.4px;     /* enough vertical space */
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  /* Scale entire layout proportionally */
+  body {
+    transform-origin: top center;
+    transform: scale(calc(100vw / 1200));
+  }
 
 .secondary1 { animation-delay: 0.32s; }
 .secondary4 { animation-delay: 0.42s; }
@@ -821,7 +840,8 @@ body {
 
   left: 6%;
   width: 89%;
-  top: 205.5%;
+  top: auto;
+  bottom: calc(-815px + env(safe-area-inset-bottom));
 
   height: 4px;
 
@@ -856,16 +876,18 @@ body {
 }
 
 .buttons {
-  position: absolute;
+  position: fixed;          /* stick to screen bottom */
   left: 50%;
-  top: 1530px;
+  bottom: 6.4px;            /* exact 6.4px gap from bottom */
   transform: translateX(-50%);
 
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6.7px;
-  margin-top: 150px;
+  gap: 10.5px;
+  top: 1700px;
+
+  margin: 0;                /* remove old spacing */
 }
 
 .return {
@@ -888,10 +910,6 @@ body {
 
   cursor: pointer;
   transition: transform 120ms ease, filter 120ms ease;
-}
-
-.scroll-spacer {
-  height: 1728.4px; /* adjust gap below button */
 }
 
 }
