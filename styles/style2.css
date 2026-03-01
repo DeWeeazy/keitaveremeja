@@ -248,30 +248,3 @@ button:active {
 }
 
 }
-
-@media screen and (max-width: 480px) {
-
-  body {
-    background-image: url("../background_phone.png");
-  }
-
-  .text {
-    font-size: 58px;
-  }
-
-  .text_2 {
-    font-size: 30px;
-  }
-  .grid {
-  grid-template-columns: repeat(2, 165px);
-  grid-template-rows: repeat(2, 165px);
-  gap: 16.6px;
-}
-
-  button {
-  width: 165px;
-  height: 165px;
-  border: 5.1px solid #7b001d;
-}
-
-}

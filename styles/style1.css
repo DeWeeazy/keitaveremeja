@@ -247,34 +247,3 @@ body.fade-out {
 }
 
 }
-
-@media screen and (max-width: 480px) {
-
-  body {
-    background-image: url("../background_phone.png");
-  }
-
-  .message {
-  margin: 120px 20px;
-
-  font-size: clamp(45px, 16vw, 145px);
-  color: #7b001d;
-
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-  .buttons {
-  top: 505px;
-}
-
-  .try_again {
-  border: 3px solid #7b001d;
-}
-
-  .drawing {
-  top: 90px;
-}
-
-}

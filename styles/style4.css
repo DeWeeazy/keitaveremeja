@@ -190,11 +190,11 @@ body.fade-out {
 
   font-family: "MainFont", sans-serif;
   font-weight: normal;
-  font-size: 30px;
+  font-size: 25px;
   color: #7b001d;
 
   text-align: center;
-  line-height: 1.2;
+  line-height: 1;
   margin: 0;
 
   -webkit-font-smoothing: antialiased;
@@ -318,7 +318,7 @@ body.fade-out {
 @media screen and (max-width: 1280px) {
 
 .main_image {
-  width: 422px;
+  width: 520px;
   height: 525px;
 
   position: absolute;
@@ -343,7 +343,7 @@ body.fade-out {
 /* image */
 .main_image .image {
   width: 100%;
-  max-height: 512px;
+  max-height: 380px;
   object-fit: contain;
   display: block;
   margin-top: 6.4px;
@@ -452,7 +452,7 @@ body.fade-out {
   padding: 13px 55px;
   border-radius: 26px;
   border: 2.6px solid #7b001d;
-  background-color: #dadadc;
+  background-color: #f9eeef;
 
   font-family: "papernotes", sans-serif;
   font-size: 16px;
@@ -467,131 +467,4 @@ body.fade-out {
   height: 787.4px;
 }
 
-}
-
-/* =========================
-   MOBILE FIX
-   ========================= */
-
-@media (max-width: 768px) {
-
-  /* Remove big card style */
-  .main_image {
-    position: relative;
-    width: 100%;
-    height: auto;
-    left: auto;
-    top: auto;
-    transform: none;
-
-    border: none;
-    background: transparent;
-
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* REMOVE IMAGE ON PHONE */
-  .main_image .image {
-    display: none;
-  }
-
-  /* NAME */
-  .main_image .name {
-    font-size: clamp(50px, 26vw, 60px);
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  /* DESCRIPTION (1 LINE ONLY) */
-  .main_image .description {
-    font-size: clamp(35px, 8vw, 30px);
-    margin-bottom: 30px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* RESET PILLS POSITIONING */
-  .pill {
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-
-    width: 70%;
-    max-width: 500px;
-
-    margin: 0 auto 16px auto;
-
-    /* SAME HEIGHT FOR ALL */
-    min-height: 72px;
-    height: 72px;
-
-    /* Perfect vertical centering */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0 22px;
-
-    /* BIGGER TEXT */
-    font-size: clamp(18px, 5vw, 22px);
-
-    line-height: 1.25;
-
-    text-align: center;
-
-    /* Remove old clamp behavior */
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-  }
-
-  /* Stack texts vertically */
-  .text1, .text2, .text3, .text4, .text5,
-  .text6, .text7, .text8, .text9, .text10 {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* MEMORY LINE */
-  .memory-line {
-    position: relative;
-    left: 6%;
-    top: auto;
-    width: 90%;
-    margin: 40px auto 30px auto;
-  }
-
-  /* VIRTUAL FLOWERS */
-  .virtual-flowers {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-
-    font-size: clamp(32px, 9vw, 60px);
-    margin-bottom: 30px;
-    white-space: normal;
-  }
-
-  /* BUTTON */
-  .buttons {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin: 0;
-  }
-
-  .return {
-  border: 3px solid #7b001d;
-  }
-
-  /* remove scroll spacer */
-  .scroll-spacer {
-    height: 6.4px;
-  }
 }

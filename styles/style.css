@@ -327,19 +327,48 @@ body.fade-out {
 
 }
 
-@media screen and (max-width: 480px) {
+/* =========================
+   📱 PHONE BLOCK VERSION
+   ========================= */
 
+@media (max-width: 768px) {
+
+  /* Keep background only */
   body {
+    margin: 0;
+    height: 100vh;
+
     background-image: url("../background_phone.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .buttons {
-    margin-top: 180px;
+  /* Hide EVERYTHING inside body */
+  body > * {
+    display: none !important;
   }
 
-  .yes,
-  .no {
-    border: 3px solid #7b001d;
-  }
+  /* Center message box */
+  body::before {
+    content: "The website right now is not supported via phone.";
 
+    max-width: 60%;
+    padding: 30px 40px;
+
+    background: #fce7e9;
+    border: 5px solid #7b001d;
+    border-radius: 30px;
+
+    font-family: "ButtonFont", sans-serif;  /* ✅ Added */
+    font-size: 22px;
+    color: #7b001d;
+    text-align: center;
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  }
 }
